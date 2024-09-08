@@ -101,7 +101,10 @@ describe("EventBus Actions", () => {
   });
 
   it("non-defined action should be emitted", (done) => {
-    const actionDef: any = {
+    const actionDef: TImplementsAction<{
+      name: "MyNonDefinedAction";
+      payload: { code: string };
+    }> = {
       name: "MyNonDefinedAction",
       payload: { code: faker.string.uuid() },
     };
@@ -109,6 +112,6 @@ describe("EventBus Actions", () => {
       expect(action).toEqual(actionDef);
       done();
     });
-    myActions.publish(actionDef);
+    myActions.publish(actionDef as any);
   });
 });
