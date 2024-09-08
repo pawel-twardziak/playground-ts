@@ -78,11 +78,11 @@ export class MyActions<Actions extends IAction> {
   publish(action: Actions) {
     const subscriptions = this.#subscriptions;
     const actionName = action.name as TActionNames<Actions>;
-    const actionPayload = action.payload as
-      | Exclude<TPayload<Actions, typeof action.name>, unknown>
-      | undefined;
 
     if (subscriptions[actionName]) {
+      const actionPayload = action.payload as
+        | Exclude<TPayload<Actions, typeof action.name>, unknown>
+        | undefined;
       subscriptions[actionName]?.forEach((callback) =>
         callback(structuredClone(actionPayload)),
       );
