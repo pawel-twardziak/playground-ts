@@ -100,9 +100,9 @@ describe("EventBus Actions", () => {
     myActions.publish(actionDef);
   });
 
-  it("non-existing action should be emitted", (done) => {
+  it("non-defined action should be emitted", (done) => {
     const actionDef: any = {
-      name: "MyNonExistingAction",
+      name: "MyNonDefinedAction",
       payload: { code: faker.string.uuid() },
     };
     myActions.subscribe("AllActions", (action) => {
