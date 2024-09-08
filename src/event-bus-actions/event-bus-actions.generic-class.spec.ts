@@ -1,8 +1,8 @@
 import { faker } from "@faker-js/faker";
-import { Implements } from "../ts-utils";
-import { IAction, MyActions } from "./event-bus-actions.generic-class";
-
-type TImplementsAction<Actions extends IAction> = Implements<IAction, Actions>;
+import {
+  MyActions,
+  TImplementsAction,
+} from "./event-bus-actions.generic-class";
 
 type TActionZero = TImplementsAction<{
   name: "MyZeroAction";

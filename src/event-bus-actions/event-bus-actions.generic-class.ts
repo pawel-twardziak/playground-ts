@@ -1,3 +1,10 @@
+import { Implements } from "../ts-utils";
+
+export type TImplementsAction<Actions extends IAction> = Implements<
+  IAction,
+  Actions
+>;
+
 /**
  * Feature ts-utils
  */
